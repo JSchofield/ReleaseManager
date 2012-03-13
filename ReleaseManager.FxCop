@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="10.0" Name="ReleaseManager">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">$(FxCopDir)\Xml\FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="en-US" />
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+  <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+ </ProjectOptions>
+ <Targets>
+  <AssemblyReferenceDirectories>
+   <Directory>$(ProjectDir)/lib/</Directory>
+   <Directory>$(ProjectDir)/../../../Program Files (x86)/Microsoft ASP.NET/ASP.NET MVC 2/Assemblies/</Directory>
+  </AssemblyReferenceDirectories>
+  <Target Name="$(ProjectDir)/src/Output/ReleaseManager.dll" Analyze="True" AnalyzeAllChildren="False" />
+  <Target Name="$(ProjectDir)/src/Output/ReleaseManager.Tests.dll" Analyze="True" AnalyzeAllChildren="False">
+   <Modules AnalyzeAllChildren="False">
+    <Module Name="releasemanager.tests.dll" Analyze="True" AnalyzeAllChildren="False">
+     <Namespaces AnalyzeAllChildren="False">
+      <Namespace Name="" Analyze="True" AnalyzeAllChildren="True" />
+      <Namespace Name="ReleaseManager.Tests" Analyze="True" AnalyzeAllChildren="True" />
+      <Namespace Name="ReleaseManager.Tests.Core.Jira" Analyze="True" AnalyzeAllChildren="False">
+       <Types AnalyzeAllChildren="False" />
+      </Namespace>
+     </Namespaces>
+     <Resources AnalyzeAllChildren="True" />
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="$(ProjectDir)/src/Output/ReleaseManager.Web.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityTransparencyRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="10.0">
+  <Namespaces>
+   <Namespace Name="ReleaseManager.Jira">
+    <Messages>
+     <Message Id="Jira" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2010-11-21 19:05:06Z">
+      <Issue Name="Namespace">
+       <Item>Jira</Item>
+       <Item>ReleaseManager.Jira</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="ReleaseManager.Tests">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2010-11-21 21:24:11Z">
+      <Issue>
+       <Item>ReleaseManager.Tests</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="ReleaseManager.Web">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2010-11-21 21:35:03Z">
+      <Issue>
+       <Item>ReleaseManager.Web</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="ReleaseManager.Web.Controllers">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2010-11-21 21:35:03Z">
+      <Issue>
+       <Item>ReleaseManager.Web.Controllers</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="ReleaseManager.Web.HtmlHelpers">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2010-11-21 21:35:03Z">
+      <Issue>
+       <Item>ReleaseManager.Web.HtmlHelpers</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+  </Namespaces>
+  <Targets>
+   <Target Name="$(ProjectDir)/src/Output/ReleaseManager.Tests.dll">
+    <Modules>
+     <Module Name="releasemanager.tests.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2010-11-21 21:24:11Z">
+        <Issue Name="NoStrongName">
+         <Item>'ReleaseManager.Tests.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="ReleaseManager.Tests">
+        <Types>
+         <Type Name="BehaviorDrivenSpecificationBase">
+          <Members>
+           <Member Name="#Setup()">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2010-11-21 21:29:35Z">
+              <Issue>
+               <Item>'BehaviorDrivenSpecificationBase.Setup()'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+              <Notes>
+               <User Name="jschofield">
+                <Note Id="10" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#When()">
+            <Messages>
+             <Message Id="When" TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716" Created="2010-11-21 21:24:11Z">
+              <Issue Name="Member">
+               <Item>'BehaviorDrivenSpecificationBase.When()'</Item>
+               <Item>When</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ConfigLoader">
+          <Members>
+           <Member Name="#Load(System.String)">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2010-11-24 09:28:09Z">
+              <Issue Name="Reserved">
+               <Item>'ConfigLoader.Load(string)'</Item>
+               <Item>'NullReferenceException'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/src/Output/ReleaseManager.Web.dll">
+    <Modules>
+     <Module Name="releasemanager.web.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2010-11-21 21:35:03Z">
+        <Issue Name="NoStrongName">
+         <Item>'ReleaseManager.Web.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="ReleaseManager.Web">
+        <Types>
+         <Type Name="Core">
+          <Messages>
+           <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Created="2010-11-21 21:35:03Z">
+            <Issue Name="CSharp2_0">
+             <Item>'Core'</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724" Created="2010-11-21 21:35:03Z">
+            <Issue>
+             <Item>'Core'</Item>
+             <Item>ReleaseManager.Tests.Core.Jira</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="MvcApplication">
+          <Messages>
+           <Message Id="Mvc" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2010-11-21 21:35:03Z">
+            <Issue Name="Type">
+             <Item>Mvc</Item>
+             <Item>'MvcApplication'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#Application_Start()">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2010-11-21 21:35:03Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'MvcApplication.Application_Start()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="ReleaseManager.Web.Controllers">
+        <Types>
+         <Type Name="ErrorController">
+          <Members>
+           <Member Name="#Message(System.String)">
+            <Messages>
+             <Message Id="0#" TypeName="ParameterNamesShouldNotMatchMemberNames" Category="Microsoft.Naming" CheckId="CA1719" Created="2010-11-21 21:35:03Z">
+              <Issue>
+               <Item>'message'</Item>
+              </Issue>
+             </Message>
+             <Message Id="message" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2010-11-21 21:35:03Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'message'</Item>
+               <Item>'ErrorController.Message(string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ReleaseController">
+          <Members>
+           <Member Name="#GetSuggestedNextStartRevision(System.String)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2010-11-21 21:35:03Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'ReleaseController.GetSuggestedNextStartRevision(string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ParseRevisionText(System.String)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2010-11-21 21:35:03Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'ReleaseController.ParseRevisionText(string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Equals(System.String,System.String,System.StringComparison)" TypeName="UseOrdinalStringComparison" Category="Microsoft.Globalization" CheckId="CA1309" Created="2010-11-21 21:35:03Z">
+              <Issue Name="StringComparison">
+               <Item>'ReleaseController.ParseRevisionText(string)'</Item>
+               <Item>StringComparison.InvariantCultureIgnoreCase</Item>
+               <Item>'string.Equals(string, string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Wip(System.String)">
+            <Messages>
+             <Message Id="Wip" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2010-11-21 21:35:03Z">
+              <Issue Name="Member">
+               <Item>Wip</Item>
+               <Item>'ReleaseController.Wip(string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="VersionController">
+          <Members>
+           <Member Name="#Wip(System.String,System.String)">
+            <Messages>
+             <Message Id="Wip" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2010-11-21 21:35:03Z">
+              <Issue Name="Member">
+               <Item>Wip</Item>
+               <Item>'VersionController.Wip(string, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="ReleaseManager.Web.HtmlHelpers">
+        <Types>
+         <Type Name="ReleaseLinksBuilder">
+          <Members>
+           <Member Name="#ReleaseLink(System.Web.Mvc.HtmlHelper,System.String,System.String,System.String,System.String)">
+            <Messages>
+             <Message Id="System.String.Equals(System.String,System.String,System.StringComparison)" TypeName="UseOrdinalStringComparison" Category="Microsoft.Globalization" CheckId="CA1309" Created="2010-11-21 21:35:03Z">
+              <Issue Name="StringComparison">
+               <Item>'ReleaseLinksBuilder.ReleaseLink(HtmlHelper, string, string, string, string)'</Item>
+               <Item>StringComparison.InvariantCultureIgnoreCase</Item>
+               <Item>'string.Equals(string, string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ReleaseStatusGraphBuilder">
+          <Members>
+           <Member Name="#ReleaseStatusGraph(System.Web.Mvc.HtmlHelper,ReleaseManager.Web.Models.VersionViewModel)">
+            <Messages>
+             <Message Id="html" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2010-11-21 21:35:03Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'html'</Item>
+               <Item>'ReleaseStatusGraphBuilder.ReleaseStatusGraph(this HtmlHelper, VersionViewModel)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="VersionLinksBuilder">
+          <Members>
+           <Member Name="#VersionLink(System.Web.Mvc.HtmlHelper,ReleaseManager.Web.Models.VersionViewModel,System.String,System.String,System.String)">
+            <Messages>
+             <Message Id="System.String.Equals(System.String,System.String,System.StringComparison)" TypeName="UseOrdinalStringComparison" Category="Microsoft.Globalization" CheckId="CA1309" Created="2010-11-21 21:35:03Z">
+              <Issue Name="StringComparison">
+               <Item>'VersionLinksBuilder.VersionLink(this HtmlHelper, VersionViewModel, string, string, string)'</Item>
+               <Item>StringComparison.InvariantCultureIgnoreCase</Item>
+               <Item>'string.Equals(string, string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="ReleaseManager.Web.Models">
+        <Types>
+         <Type Name="ReleaseComponentViewModel">
+          <Members>
+           <Member Name="#.ctor(System.String,ReleaseManager.IVersionWork,System.Nullable`1&lt;System.Int64&gt;)">
+            <Messages>
+             <Message Id="sugested" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2010-11-21 21:35:03Z">
+              <Issue Name="MemberParameter">
+               <Item>'ReleaseComponentViewModel.ReleaseComponentViewModel(string, IVersionWork, long?)'</Item>
+               <Item>sugested</Item>
+               <Item>'sugestedNextStartRevision'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ReleaseStatusViewModel">
+          <Members>
+           <Member Name="#AllowableValues">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2010-11-21 21:35:03Z">
+              <Issue>
+               <Item>'ReleaseStatusViewModel.AllowableValues'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ReleaseStatus">
+            <Accessors>
+             <Accessor Name="#set_ReleaseStatus(System.String)">
+              <Messages>
+               <Message TypeName="InstantiateArgumentExceptionsCorrectly" Category="Microsoft.Usage" CheckId="CA2208" Created="2010-11-21 21:35:03Z">
+                <Issue Name="IncorrectParameterName">
+                 <Item>'ReleaseStatusViewModel.ReleaseStatus.set(string)'</Item>
+                 <Item>Invalid release status string</Item>
+                 <Item>'paramName'</Item>
+                 <Item>'ArgumentOutOfRangeException'</Item>
+                </Issue>
+               </Message>
+               <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Created="2010-11-21 21:35:03Z">
+                <Issue Name="IsNullOrEmpty">
+                 <Item>'string.operator ==(string, string)'</Item>
+                 <Item>'ReleaseStatusViewModel.ReleaseStatus.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="RevisionViewModel">
+          <Members>
+           <Member Name="#PropogatedStatus">
+            <Messages>
+             <Message Id="Propogated" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2010-11-21 21:35:03Z">
+              <Issue Name="Member">
+               <Item>Propogated</Item>
+               <Item>'RevisionViewModel.PropogatedStatus'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="VersionUpdateModel">
+          <Members>
+           <Member Name="#Revisions">
+            <Messages>
+             <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Created="2010-11-21 21:35:03Z">
+              <Issue>
+               <Item>'VersionUpdateModel.Revisions'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="VersionViewModel">
+          <Members>
+           <Member Name="#GetRevisionViewModel(ReleaseManager.IRevisionSetItem)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2010-11-21 21:35:03Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'VersionViewModel.GetRevisionViewModel(IRevisionSetItem)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#WipDescending">
+            <Messages>
+             <Message Id="Wip" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2010-11-21 21:35:03Z">
+              <Issue Name="Member">
+               <Item>Wip</Item>
+               <Item>'VersionViewModel.WipDescending'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Notes>
+   <User Name="jschofield">
+    <Note Id="10" Modified="2010-11-21 21:30:00Z">Ok in this case</Note>
+   </User>
+  </Notes>
+  <Rules>
+   <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+    <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
+    <Resolution Name="Default">Consider merging the types defined in '{0}' with another namespace.</Resolution>
+   </Rule>
+   <Rule TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227">
+    <Resolution Name="Default">Change {0} to be read-only by removing the property setter.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+    <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051">
+    <Resolution Name="Default">Because field {0} is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201">
+    <Resolution Name="Reserved">{0} creates an exception of type {1}, an exception type that is reserved by the runtime and should never be raised by managed code. If this exception instance might be thrown, use a different exception type.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+    <Resolution Name="Member">Correct the spelling of '{0}' in member name {1} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+    <Resolution Name="MemberParameter">In method {0}, correct the spelling of '{1}' in parameter name {2} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+    <Resolution Name="Namespace" />
+    <Resolution Name="Type">Correct the spelling of '{0}' in type name {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716">
+    <Resolution Name="Member">Rename virtual/interface member {0} so that it no longer conflicts with the reserved language keyword '{1}'. Using a reserved keyword as the name of a virtual/interface member makes it harder for consumers in other languages to override/implement the member.</Resolution>
+   </Rule>
+   <Rule TypeName="InstantiateArgumentExceptionsCorrectly" Category="Microsoft.Usage" CheckId="CA2208">
+    <Resolution Name="IncorrectParameterName">Method {0} passes '{1}' as the {2} argument to a {3} constructor. Replace this argument with one of the method's parameter names. Note that the provided parameter name should have the exact casing as declared on the method.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+    <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   </Rule>
+   <Rule TypeName="ParameterNamesShouldNotMatchMemberNames" Category="Microsoft.Naming" CheckId="CA1719">
+    <Resolution Name="Default">Change either member or parameter name {0} so that one differs from the other.</Resolution>
+   </Rule>
+   <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
+    <Resolution Name="Default">Parameter {0} of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
+   </Rule>
+   <Rule TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053">
+    <Resolution Name="CSharp2_0">Because type {0} contains only 'static' members, mark it as 'static' to prevent the compiler from adding a default public constructor.</Resolution>
+   </Rule>
+   <Rule TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820">
+    <Resolution Name="IsNullOrEmpty">Replace the call to {0} in {1} with a call to 'String.IsNullOrEmpty'.</Resolution>
+   </Rule>
+   <Rule TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724">
+    <Resolution Name="Default">The type name {0} conflicts in whole or in part with the namespace name '{1}'. Change either name to eliminate the conflict.</Resolution>
+   </Rule>
+   <Rule TypeName="UseOrdinalStringComparison" Category="Microsoft.Globalization" CheckId="CA1309">
+    <Resolution Name="StringComparison">{0} passes '{1}' as the 'StringComparison' parameter to {2}. To perform a non-linguistic comparison, specify 'StringComparison.Ordinal' or 'StringComparison.OrdinalIgnoreCase' instead.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

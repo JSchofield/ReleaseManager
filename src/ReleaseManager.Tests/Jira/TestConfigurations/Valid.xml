@@ -1,0 +1,28 @@
+﻿<?xml version="1.0"?>
+
+<configuration>
+  <configSections>
+    <section name="jiraClient" type="ReleaseManager.Jira.JiraConfig, ReleaseManager, Version=1.0.0.0, Culture=neutral" />
+  </configSections>
+
+  <jiraClient
+    userName="userName"
+    password="superSecurePassword"
+    cacheExpireTime="00:01:00"
+    baseUri="http://this.is.where.jira.lives">
+    <statusMap>
+      <add status="Open" canBeReleased="false" />
+      <add status="Ready for release" canBeReleased="true" />
+      <add status="Sprint candidate" canBeReleased="false" />
+      <add status="In QA" canBeReleased="false" />
+      <add status="Dev done" canBeReleased="false" />
+      <add status="Dev. Done" canBeReleased="false" />
+      <add status="Deployed" canBeReleased="true" />
+      <add status="Closed" canBeReleased="true" />
+      <add status="In Progress" canBeReleased="false" />
+      <add status="Resolved" canBeReleased="true" />
+      <add status="Moved to India" canBeReleased="true" />
+    </statusMap>
+  </jiraClient>
+  
+</configuration>

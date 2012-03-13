@@ -1,0 +1,7 @@
+﻿<?xml version="1.0"?>
+
+<configuration>
+  <configSections>
+    <section name="jiraClient" type="ReleaseManager.Jira.JiraConfig, ReleaseManager, Version=1.0.0.0, Culture=neutral" />
+  </configSections>
+</configuration>

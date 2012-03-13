@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+
+<configuration>
+  <configSections>
+    <section name="subversionClient" type="ReleaseManager.Subversion.SvnConfig, ReleaseManager, Version=1.0.0.0, Culture=neutral" />
+  </configSections>
+
+  <subversionClient
+    userName="userName"
+    password="password" />
+  
+</configuration>

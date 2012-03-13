@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+
+<configuration>
+  <configSections>
+  </configSections>
+
+  <subversionClient
+    userName="userName"
+    password="password" />
+  
+</configuration>

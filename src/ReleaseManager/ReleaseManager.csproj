@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.3077</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F53EFE12-779E-46C9-9441-ACDD7A1C434E}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AssemblyName>ReleaseManager</AssemblyName>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\Output\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>false</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\Output\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugSymbols>false</DebugSymbols>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>true</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>ReleaseManager</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\packages\Castle.Core.3.0.0.4001\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\packages\Castle.Windsor.3.0.0.4001\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NHibernate.3.2.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpSvn">
+      <HintPath>..\..\lib\SharpSvn.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="IVersionWork.cs" />
+    <Compile Include="IIssueCollection.cs" />
+    <Compile Include="Jira\IJiraConfig.cs" />
+    <Compile Include="Jira\IJiraSoapClient.cs" />
+    <Compile Include="Jira\IStatusMap.cs" />
+    <Compile Include="Jira\JiraConfig.cs" />
+    <Compile Include="Jira\JiraConfigException.cs" />
+    <Compile Include="Jira\IRemoteIssue.cs" />
+    <Compile Include="Jira\IRemoteStatus.cs" />
+    <Compile Include="Jira\SoapClient\JiraSoapServiceClient.cs" />
+    <Compile Include="Jira\SoapClient\RemoteIssue.cs" />
+    <Compile Include="Jira\SoapClient\RemoteStatus.cs" />
+    <Compile Include="Jira\StatusMapItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NHibernate\Component.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NHibernate\NHibernateRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NHibernate\Release.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NHibernate\RevisionOverride.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Subversion\GetLogItemsArgs.cs" />
+    <Compile Include="Subversion\ISvnConfig.cs" />
+    <Compile Include="Subversion\SvnConfigException.cs" />
+    <Compile Include="Subversion\SvnConfig.cs" />
+    <Compile Include="Subversion\SvnInfoEventArgsWrapper.cs" />
+    <Compile Include="VersionWork.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NHibernate\Version.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IComponent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEntityRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IIssue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ILogItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IRelease.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IRevision.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IRevisionOverride.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IRevisionCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IRevisionSetBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IRevisionSetItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IVersion.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IIssueRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Jira\Issue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Jira\IssueCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Jira\JiraRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Jira\SoapClient\JiraSoapReference.cs" />
+    <Compile Include="Jira\StatusMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MasterRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Revision.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RevisionCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RevisionSetBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RevisionSetItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Subversion\Extractor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Subversion\DirectiveExtractor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Subversion\ISvnClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IVersionControlRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Subversion\LogItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Subversion\SvnClientWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Subversion\SvnGetLogException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Subversion\SvnLogEventArgsWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Subversion\SvnRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Subversion\TicketExtractor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="NHibernate\Mappings\Component.hbm.xml" />
+    <EmbeddedResource Include="NHibernate\Mappings\Release.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NHibernate\Mappings\Version.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping 
+  xmlns="urn:nhibernate-mapping-2.2" 
+  namespace="ReleaseManager.NHibernate" 
+  assembly="ReleaseManager">
+
+  <class name="Version" table="Version">
+
+    <id name="Id" unsaved-value="0">
+      <generator  class="native"/>
+    </id>
+
+    <property name="StartRevision" not-null="true" />
+    <property name="EndRevision"  not-null="false"/>
+    <property name="SelectedRevision" not-null="false"/>
+
+    <many-to-one name="Release" column="ReleaseId" lazy="false"/>
+    <many-to-one name="Component" column="ComponentId" lazy="false"/>
+
+    <map name="RevisionOverrides" lazy="false" table="Revision">
+      <key column="VersionId" />
+      <index column="Revision" type="long"/>
+      <composite-element class="RevisionOverride">
+        <property name="CanBeReleased" column="CanBeReleased" />
+        <property name="Ignore" column="Ignore" />
+        <property name="Breaking" column="Breaking" />
+        <property name="SetBy" column="SetBy" />
+        <property name="SetTime" column="SetTime" />
+        <property name="Note" column="Note" />
+      </composite-element>
+    </map>
+    
+  </class>
+
+  </hibernate-mapping>

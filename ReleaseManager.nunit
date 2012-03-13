@@ -1,0 +1,8 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+  <Config name="Debug" binpathtype="Auto" runtimeFramework="net-4.0">
+    <assembly path="src\output\ReleaseManager.Tests.dll" />
+    <assembly path="src\Output\ReleaseManager.FunctionalTests.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto" />
+</NUnitProject>

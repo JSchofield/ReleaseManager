@@ -1,0 +1,192 @@
+﻿body {
+    background: #b6b7bc;
+    font-size: .80em;
+    font-family: Helvetica, Lucida Grande, Segoe UI, Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: #696969;}
+
+.page {
+    width: 960px;
+    background-color: #fff;
+    margin: 5px auto 0px auto;
+    border: 1px solid #496077;}
+
+.header {
+    background-color:#3B5C9E;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    border:none;}
+
+.header h1 {
+    color: White;
+    margin: 0px;
+    padding: 0px 0px 0px 8px;
+    font-size: xx-large;
+    font-weight: bold;}
+
+.menu table {
+    border-top:1px solid black;
+    border-left:1px solid black;
+    border-collapse: collapse;}
+
+.menu a {
+    color:  #696969;}
+
+.menu td {
+    background-color: Silver;
+    border-bottom:1px solid black;
+    border-right:1px solid black;
+    font-weight: bold;
+    text-align: center;}
+
+.main {
+    padding: 0px 12px;
+    margin: 12px 8px 8px 8px;
+    min-height: 900px;}
+
+.submitButton {
+    text-align: right;
+    padding-right: 10px;}
+
+table {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: none; 
+    border-right: none;  
+    border-collapse:collapse;
+    width: 100%;}
+  
+td 
+{
+    background-color: inherit;
+    border-top: none;
+    border-left: none;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black; padding: 3px;}
+    
+th {
+    background-color: Silver;
+    font-weight: bold;
+    border-top: none;
+    border-left: none;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 3px;
+    text-align: inherit;}
+table input {
+    width:97%;
+    height:100%;}
+    
+.contentHeader {
+    background:#4B6C9E;
+    color: White;
+    padding: 4px;
+    border: 1px solid black;
+    border-bottom: none;
+    margin-right: 0px;}
+    
+.headerTitle {
+    font-weight:bold;
+    font-size:large;}
+    
+.headerLinks {
+    float:right;
+    padding-right: 5px;
+    color: #D0D0D0}
+    
+.headerLinks A {
+     color:White;}
+     
+.headerTitle A {
+     color:White;}
+     
+.runOnTable {
+  border-top: none;}
+  
+.propertiesTable{}
+
+.itemHeader {
+    background-color: #5B7C9E;
+    color:White;
+    padding: 3px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;}
+    
+.itemHeader A {
+    color: White;}
+    
+.emptyRevisionList {
+    border: 1px solid black; 
+    padding: 3px;}
+
+.itemsTable{}
+
+.graphContainer { padding: 1px;}
+
+table .graph {
+    border: none;
+    border-collapse: separate;}
+      
+.graph tr {
+    border: none;}
+
+td .graph {
+    border: none;
+    padding: 5px;
+    empty-cells: show;}
+
+.ready {
+    background-color: Green;}
+
+.notReady {
+    background-color: Orange;}
+
+.ignore {
+    background-color: Silver;}
+
+.unknown {
+    background-color: Orange;}
+
+.blocked {
+    background-color: Red;}
+    
+.cellNotReady {
+    background-color: #FFFD80;}
+
+.cellReady {
+    background-color: #A0FBA4;}
+    
+.cellIgnore {
+    background-color: #D0D0D0;}
+    
+.cellIgnored {
+    background-color: #D0D0D0;}
+    
+.cellBlocked {
+    background-color: #FC8080;}
+   
+.leftAligned table {
+    text-align:left;}
+    
+.includedComponent { color: inherit;}
+.discludedComponent { color: #EEEEEE;}
+.deleteLink a{ color: Red;}
+.lightRightBorder { border-right: 1px solid silver; }
+
+.selectedRevision {
+    background-color: #99FFCC; }
+.selectedRevision td  {
+    /* selectedRevision is applied at the row level. This
+    selector ensures the background-color of the cell is 
+    overriden by the row background-color */
+     background-color: #99FFCC; }
+     
+.blockingRevision { background-color: #FC8080; }
+.blockingRevision td {
+    /* blockingRevision is applied at the row level. This
+    selector ensures the background-color of the cell is 
+    overriden by the row background-color */
+     background-color: #FC8080; }

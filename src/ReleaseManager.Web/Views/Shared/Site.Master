@@ -1,0 +1,38 @@
+﻿<%@ Master 
+    Language="C#" 
+    Inherits="System.Web.Mvc.ViewMasterPage" %>
+    
+<%@ Import Namespace="System.Web.Mvc.Html" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+
+<head runat="server">
+    <title>Release Manager</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>Release Manager</h1>
+            <table class="menu">
+                <tr>
+                    <td class="menu"><%=Html.RouteLink("Releases", "ReleaseList", new object { }, new { id = "goToReleaseList" })%></td>
+                    <td class="menu"><%=Html.RouteLink("Components", "ComponentList", new object { }, new { id = "goToComponentList" })%></td>
+                    <td class="menu">Options</td>
+                </tr>
+            </table>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+</body>
+</html>

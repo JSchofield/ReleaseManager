@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+
+<configuration>
+  <configSections>
+    <section name="jiraClient" type="ReleaseManager.Jira.JiraConfig, ReleaseManager, Version=1.0.0.0, Culture=neutral" />
+  </configSections>
+
+  <jiraClient
+    userName="userName"
+    password="superSecurePassword"
+    cacheExpireTime="00:01:00"
+    baseUri="http://this.is.where.jira.lives">
+  </jiraClient>
+  
+</configuration>
