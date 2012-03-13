@@ -28,7 +28,6 @@ ipch/
 obj/
 [Bb]in
 [Dd]ebug/
-[Rr]elease/
 Ankh.NoLoad
 *.VisualState.xml
 
