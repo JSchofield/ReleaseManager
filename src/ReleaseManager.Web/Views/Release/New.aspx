@@ -82,7 +82,7 @@ using (Html.BeginForm("Create", "Release", FormMethod.Post)) {
     }
     %>
     </table>
-    <input type="submit" value="Save" />
+    <input type="submit" value="Save" id="save" />
 <% } // End form %>
 
 </asp:Content>

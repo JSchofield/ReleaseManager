@@ -12,17 +12,19 @@ namespace ReleaseManager.FunctionalTests
         [RequiresSTA]
         public void NavigateAround()
         {
-            using (var browser = new IE("http://localhost:57228/"))
+            using (var driver = new TestDriver(new IE("http://localhost:57228/"), true, TimeSpan.FromSeconds(0)))
             {
-                var driver = new TestDriver(browser, true, TimeSpan.FromSeconds(1));
-
                 var home = driver.HomePage();
-                var releases = home.GoToReleaseList();
-                var components = releases.GoToComponentList();
-                components.GoToReleaseList();
+                home.GoToReleaseList()
+                    .AddRelease()
+                        .SetValues(new { Name = "My Release", ReleaseManager = "Jonathon", ReleaseDate = "2012-03-31" })
+                        .Save()
+                    .GoToReleaseList()
+                    .AddRelease()
+                        .SetValues(new { Name = "My Second Release", ReleaseManager = "Jonathon", ReleaseDate = "2012-04-30" })
+                        .Save()
+                    .GoToReleaseList();
             }
         }
-
-
     }
 }

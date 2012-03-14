@@ -54,4 +54,5 @@ packages/
 
 #Project
 src/Output/
+nhibernate.db
 

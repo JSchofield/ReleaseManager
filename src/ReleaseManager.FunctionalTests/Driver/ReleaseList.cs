@@ -2,17 +2,17 @@
 
 namespace ReleaseManager.FunctionalTests.Driver
 {
-    public class ReleaseList: WatinPageDriver
+    public class ReleaseList : WatinPageDriver
     {
         public ReleaseList(TestDriver driver)
             : base(driver)
         {
         }
 
-        public virtual ComponentList GoToComponentList()
+        public virtual AddRelease AddRelease()
         {
-            Browser.Link("goToComponentList").Click();
-            return Driver.ComponentList();
+            Browser.Link("addRelease").Click();
+            return CreatePageDriver<AddRelease>();
         }
     }
 }

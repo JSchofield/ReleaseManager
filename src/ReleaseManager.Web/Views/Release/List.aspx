@@ -12,7 +12,7 @@
 
 <div class="contentHeader" >
     <span class="headerTitle">Releases</span>
-    <span class="headerLinks"><%=Html.RouteLink("New Release", "NewRelease") %></span>
+    <span class="headerLinks"><%=Html.RouteLink("New Release", "NewRelease", new object { }, new { id = "addRelease" })%></span>
 </div>
 <table class="itemsTable leftAligned">
     <tr>

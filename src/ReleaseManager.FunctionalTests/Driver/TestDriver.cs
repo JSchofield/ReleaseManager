@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using WatiN.Core;
 using Castle.DynamicProxy;
 
 namespace ReleaseManager.FunctionalTests.Driver
 {
-    public class TestDriver
+    public class TestDriver: IDisposable
     {
         private readonly ProxyGenerator _proxyGenerator;
         private readonly IInterceptor _interceptor;
@@ -22,22 +20,20 @@ namespace ReleaseManager.FunctionalTests.Driver
 
         public Home HomePage()
         {
-            return Proxy<Home>();
+            return CreatePageDriver<Home>();
         }
 
-        public ReleaseList ReleaseList()
-        {
-            return Proxy<ReleaseList>();
-        }
-
-        public ComponentList ComponentList()
-        {
-            return Proxy<ComponentList>();
-        }
-
-        private T Proxy<T>() where T : WatinPageDriver
+        public T CreatePageDriver<T>() where T : WatinPageDriver
         {
             return (T)_proxyGenerator.CreateClassProxy(typeof(T), new []{ this }, _interceptor);
+        }
+
+        public void Dispose()
+        {
+            if (Browser != null)
+            {
+                Browser.Dispose();
+            }
         }
     }
 }
