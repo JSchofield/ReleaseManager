@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReleaseManager.FunctionalTests.Driver
+namespace ReleaseManager.FunctionalTests.Drivers
 {
     public class EditRelease : WatinPageDriver
     {

@@ -11,7 +11,7 @@
 
 <div class="contentHeader" >
     <span class="headerTitle">Components</span>
-    <span class="headerLinks"><%=Html.RouteLink("New Component", "NewComponent") %></span>
+    <span class="headerLinks"><%=Html.RouteLink("New Component", "NewComponent", new object { }, new { id = "addComponent" })%></span>
 </div>
 <%
 using (Html.BeginForm("Save", "Component")) 

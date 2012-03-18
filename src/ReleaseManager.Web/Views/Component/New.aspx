@@ -26,7 +26,7 @@ using (Html.BeginForm("Create", "Component", FormMethod.Post)) {
             <td><%=Html.EditorFor(m => m.Location)%></td>
         </tr>
     </table>
-    <input type="submit" value="Save" />
+    <input type="submit" value="Save" id="save" />
 <% } // End form %>
 
 </asp:Content>

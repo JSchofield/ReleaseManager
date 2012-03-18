@@ -7,8 +7,8 @@
       <generator  class="native"/>
     </id>
 
-    <property name="Name" />
-    <property name="ReleaseManager" />
+    <property name="Name" unique="true" />
+    <property name="ReleaseManager"  />
     <property name="ReleaseDate" />
       
   </class>

@@ -2,7 +2,7 @@
 using WatiN.Core;
 using Castle.DynamicProxy;
 
-namespace ReleaseManager.FunctionalTests.Driver
+namespace ReleaseManager.FunctionalTests.Drivers
 {
     public class TestDriver: IDisposable
     {

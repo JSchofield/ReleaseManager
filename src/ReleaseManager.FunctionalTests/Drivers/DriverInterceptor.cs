@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ReleaseManager.FunctionalTests.Driver
+namespace ReleaseManager.FunctionalTests.Drivers
 {
     public class DriverInterceptor : Castle.DynamicProxy.IInterceptor
     {
@@ -21,8 +21,7 @@ namespace ReleaseManager.FunctionalTests.Driver
             if (!_ignoreMethods.Contains(invocation.Method.Name))
             {
                 if (_millisecondsPause > 0) { Pause(); }
-                if (_log) { System.Console.Write("{0}.{1} {2}", invocation.TargetType.Name, invocation.Method.Name, string.Join(" ", invocation.Arguments)); }
-                Console.WriteLine();              
+                if (_log) { System.Console.Write("{0}.{1} {2}\n", invocation.TargetType.Name, invocation.Method.Name, string.Join(" ", invocation.Arguments)); }
             }
             invocation.Proceed();
         }

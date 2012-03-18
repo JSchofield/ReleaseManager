@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using WatiN.Core;
 
-namespace ReleaseManager.FunctionalTests.Driver
+namespace ReleaseManager.FunctionalTests.Drivers
 {
     public enum EntryMethod
     {
