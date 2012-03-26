@@ -36,6 +36,12 @@ namespace ReleaseManager.Web
                 "Component/List", // URL with parameters
                 new { controller = "Component", action = "List" } // Parameter defaults
             );
+            
+            routes.MapRoute(
+                "ComponentSave", // Route name
+                "Component/Save", // URL with parameters
+                new { controller = "Component", action = "Save" } // Parameter defaults
+            );
 
             routes.MapRoute(
                 "SaveRelease", // Route name

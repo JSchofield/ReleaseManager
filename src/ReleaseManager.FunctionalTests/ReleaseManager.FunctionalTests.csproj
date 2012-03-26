@@ -60,7 +60,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drivers\AddComponent.cs" />
     <Compile Include="Drivers\AddRelease.cs" />
+    <Compile Include="Drivers\AddReleaseComponent.cs" />
     <Compile Include="Drivers\DriverInterceptor.cs" />
     <Compile Include="Drivers\EditRelease.cs" />
     <Compile Include="Drivers\TestDriver.cs" />

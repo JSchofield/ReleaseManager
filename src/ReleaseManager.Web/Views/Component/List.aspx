@@ -14,7 +14,7 @@
     <span class="headerLinks"><%=Html.RouteLink("New Component", "NewComponent", new object { }, new { id = "addComponent" })%></span>
 </div>
 <%
-using (Html.BeginForm("Save", "Component")) 
+using (Html.BeginForm("Save", "Component", FormMethod.Post)) 
 {
 %>
     <table class="itemsTable leftAligned">

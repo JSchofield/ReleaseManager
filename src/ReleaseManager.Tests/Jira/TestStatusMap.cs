@@ -35,7 +35,7 @@ namespace ReleaseManager.Tests.Jira
 
         // This test is here to convince me that the ConfigurationElementCollection
         // scaffolding doesn't add significant overhead to status lookups
-        [Test]
+        [Test, Ignore("Performance test")]
         public void Show_duration_for_1000_status_lookups()
         {
             var testStatuses = new [] {

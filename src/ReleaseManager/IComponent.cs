@@ -3,7 +3,7 @@
     public interface IComponent
     {
         bool Active { get; set; }
-        string Location { get; }
+        string Location { get; set; }
         string Name { get; }
     }
 }

@@ -54,17 +54,17 @@
         }
     }
 
-    [TestFixture]
+    [TestFixture, Ignore("Run this to create a local MS SQL Server database.")]
     public class CreateDatabase
     {
         [Test]
-        public void Create()
+        public void CreateLocalDatabaes()
         {
             var testRepo = SqlServerDatabase.CreateLocalReleaseManagerDb();
         }
     }
 
-    [TestFixture]
+    [TestFixture, Ignore("Run this to create a script for a SqlLite database.")]
     public class TestDatabaseBuilder
     {
         [Test]

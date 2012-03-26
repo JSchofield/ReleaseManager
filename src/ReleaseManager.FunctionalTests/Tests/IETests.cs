@@ -6,7 +6,7 @@ namespace ReleaseManager.FunctionalTests.Tests
     [TestFixture]
     public class IETests : DevServerTestBase
     {
-        public IETests() : base(true, TimeSpan.FromMilliseconds(500))
+        public IETests() : base(true, TimeSpan.FromMilliseconds(0))
         {
         }
 

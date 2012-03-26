@@ -1,4 +1,6 @@
-﻿namespace ReleaseManager.Web.Controllers
+﻿using System.Collections.Generic;
+
+namespace ReleaseManager.Web.Controllers
 {
     using System.Linq;
     using System.Web.Mvc;
@@ -15,10 +17,22 @@
             return View(components);
         }
 
-        public ActionResult Save()
+        public ActionResult Save(IList<ComponentViewModel> componentEdits)
         {
-            var components = Core.Repo.GetComponents().Select(c => new ComponentViewModel(c));
-            return View("List", components);
+            var components = Core.Repo.GetComponents();
+
+            foreach (var edit in componentEdits)
+            {
+                var current = components.FirstOrDefault(c => c.Name == edit.Name);
+                if (current != null)
+                {
+                    current.Location = edit.Location;
+                    current.Active = edit.Active;
+                    Core.Repo.SaveComponent(current);
+                }
+            }
+
+            return View("List",  Core.Repo.GetComponents().Select(c => new ComponentViewModel(c)).ToList());
         }
 
         public ActionResult New()
