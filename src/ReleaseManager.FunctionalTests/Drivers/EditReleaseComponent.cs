@@ -4,35 +4,35 @@ using System.Collections.Generic;
 
 namespace ReleaseManager.FunctionalTests.Drivers
 {
-    public class AddReleaseComponent : WatinPageDriver
+    public class EditReleaseComponent<T> : WatinPageDriver where T : WatinPageDriver
     {
         public int Index { get; set; }
-        public AddRelease Parent { get; set; }
+        public T Parent { get; set; }
 
-        public AddReleaseComponent(TestDriver driver) : base(driver)
+        public EditReleaseComponent(TestDriver driver) : base(driver)
         {
         }
 
-        public AddReleaseComponent(AddRelease parent, int index)
+        public EditReleaseComponent(T parent, int index) 
             : base(parent.Driver)
         {
             Index = index;
             Parent = parent;
         }
 
-        public virtual AddReleaseComponent Include()
+        public virtual EditReleaseComponent<T> Include()
         {
             Browser.CheckBox(string.Format("Components_{0}__Included", Index)).Checked = true;
             return this;
         }
 
-        public virtual AddReleaseComponent Exclude()
+        public virtual EditReleaseComponent<T> Exclude()
         {
             Browser.CheckBox(string.Format("Components_{0}__Included", Index)).Checked = false;
             return this;
         }
 
-        public virtual new AddReleaseComponent SetValues(object keyValuePairs)
+        public virtual new EditReleaseComponent<T> SetValues(object keyValuePairs)
         {
             var newKeyValuePairs = 
                 AnonymousObjectToDictionary(keyValuePairs)
@@ -44,13 +44,13 @@ namespace ReleaseManager.FunctionalTests.Drivers
             return this;
         }
 
-        public virtual AddReleaseComponent SetStartRevision(string revision)
+        public virtual EditReleaseComponent<T> SetStartRevision(string revision)
         {
             Browser.TextField(string.Format("Components_{0}__StartRevision", Index)).Value = revision;
             return this;
         }
 
-        public virtual AddReleaseComponent SetEndRevision(string revision)
+        public virtual EditReleaseComponent<T> SetEndRevision(string revision)
         {
             Browser.TextField(string.Format("Components_{0}__EndRevision", Index)).Value = revision;
             return this;

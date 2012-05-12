@@ -39,10 +39,10 @@ namespace ReleaseManager.FunctionalTests.Drivers
             return this;
         }
 
-        public virtual AddReleaseComponent Component(string name)
+        public virtual EditReleaseComponent<AddRelease> Component(string name)
         {
             var index = GetComponentIndex(name);
-            var comp = CreatePageDriver<AddReleaseComponent>();
+            var comp = CreatePageDriver<EditReleaseComponent<AddRelease>>();
             comp.Index = index;
             comp.Parent = this;
             return comp;

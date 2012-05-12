@@ -10,7 +10,7 @@ namespace ReleaseManager.FunctionalTests.Tests
 {
     public class DevServerTestBase
     {
-        private const string Port = "57228";
+        private const string Port = "57228"; // Matches the DevelopmentServerPort in ReleaseManager.Web
 
         private readonly WebServerProcess _webServer;
         private readonly bool _logDriverCommands;

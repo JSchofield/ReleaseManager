@@ -26,6 +26,7 @@
             return ((maxSelectedRevision ?? maxEndRevision) ?? 0) + 1;
         }
 
+        //TODO: Crashes when renaming the release
         public ActionResult Edit(string releaseName)
         {
             IRelease release = Core.Repo.GetRelease(releaseName);
