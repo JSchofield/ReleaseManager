@@ -42,7 +42,10 @@ namespace ReleaseManager.FunctionalTests.Drivers
         public virtual AddReleaseComponent Component(string name)
         {
             var index = GetComponentIndex(name);
-            return new AddReleaseComponent(this, index); 
+            var comp = CreatePageDriver<AddReleaseComponent>();
+            comp.Index = index;
+            comp.Parent = this;
+            return comp;
         }
 
         private int GetComponentIndex(string name)

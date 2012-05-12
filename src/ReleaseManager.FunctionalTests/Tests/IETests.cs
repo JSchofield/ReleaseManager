@@ -56,5 +56,37 @@ namespace ReleaseManager.FunctionalTests.Tests
                     .SetLocation("Comp1", "svn:\\another.repo")
                     .Save();
         }
+
+        [Test, RequiresSTA]
+        public void SetRevisionsOfReleaseComponents()
+        {
+            var home = Driver.HomePage();
+            home.GoToComponentList()
+                .AddComponent()
+                    .SetValues(new { Name = "C1", Location = @"svn:\\repo\c1" })
+                    .Save()
+                .AddComponent()
+                    .SetValues(new { Name = "C2", Location = @"svn:\\repo\c2" })
+                    .Save()
+                .AddComponent()
+                    .SetValues(new { Name = "C3", Location = @"svn:\\repo\c3" })
+                    .Save()
+                .GoToReleaseList()                    
+                .AddRelease()
+                    .SetValues(new { Name = "My Release", ReleaseManager = "Jonathon", ReleaseDate = "2012-03-31" })
+                    .Component("C1")
+                        .Include()
+                        .SetStartRevision("31")
+                        .SetEndRevision("45")
+                        .Parent
+                    .Component("C2")
+                        .Include()
+                        .SetStartRevision("1234")
+                        .SetEndRevision("HEAD")
+                        .Parent
+                    .Save();
+
+
+        }
     }
 }

@@ -4,35 +4,38 @@ namespace ReleaseManager.FunctionalTests.Drivers
 {
     public class AddReleaseComponent : WatinPageDriver
     {
-        private readonly int _index;
-        private readonly AddRelease _parent;
+        public int Index { get; set; }
+        public AddRelease Parent { get; set; }
 
         public AddReleaseComponent(AddRelease parent, int index)
             : base(parent.Driver)
         {
-            _index = index;
-            _parent = parent;
+            Index = index;
+            Parent = parent;
         }
 
         public AddReleaseComponent Include()
         {
-            Browser.CheckBox(string.Format("Components_{0}__Included", _index)).Checked = true;
+            Browser.CheckBox(string.Format("Components_{0}__Included", Index)).Checked = true;
             return this;
         }
 
         public AddReleaseComponent Exclude()
         {
-            Browser.CheckBox(string.Format("Components_{0}__Included", _index)).Checked = false;
+            Browser.CheckBox(string.Format("Components_{0}__Included", Index)).Checked = false;
             return this;
         }
 
-        public AddRelease Parent
+        public AddReleaseComponent SetStartRevision(string revision)
         {
-            get
-            {
-                return _parent;
-            }
+            Browser.TextField(string.Format("Components_{0}__StartRevision", Index)).Value = revision;
+            return this;
         }
 
+        public AddReleaseComponent SetEndRevision(string revision)
+        {
+            Browser.TextField(string.Format("Components_{0}__EndRevision", Index)).Value = revision;
+            return this;
+        }
     }
 }
