@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace ReleaseManager.FunctionalTests.Drivers
 {
     public class AddReleaseComponent : WatinPageDriver
     {
-        public virtual int Index { get; set; }
-        public virtual AddRelease Parent { get; set; }
+        public int Index { get; set; }
+        public AddRelease Parent { get; set; }
 
         public AddReleaseComponent(TestDriver driver) : base(driver)
         {
@@ -27,6 +29,18 @@ namespace ReleaseManager.FunctionalTests.Drivers
         public virtual AddReleaseComponent Exclude()
         {
             Browser.CheckBox(string.Format("Components_{0}__Included", Index)).Checked = false;
+            return this;
+        }
+
+        public virtual new AddReleaseComponent SetValues(object keyValuePairs)
+        {
+            var newKeyValuePairs = 
+                AnonymousObjectToDictionary(keyValuePairs)
+                .Select(pair => new KeyValuePair<string,string>(
+                    string.Format("Components_{0}__{1}", Index, pair.Key), 
+                    pair.Value));
+
+            base.SetValues(newKeyValuePairs);
             return this;
         }
 

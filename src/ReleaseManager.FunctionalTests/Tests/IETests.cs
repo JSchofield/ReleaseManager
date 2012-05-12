@@ -6,7 +6,7 @@ namespace ReleaseManager.FunctionalTests.Tests
     [TestFixture]
     public class IETests : DevServerTestBase
     {
-        public IETests() : base(true, TimeSpan.FromMilliseconds(500))
+        public IETests() : base(true, TimeSpan.FromMilliseconds(350))
         {
         }
 
@@ -74,15 +74,13 @@ namespace ReleaseManager.FunctionalTests.Tests
                 .GoToReleaseList()                    
                 .AddRelease()
                     .SetValues(new { Name = "My Release", ReleaseManager = "Jonathon", ReleaseDate = "2012-03-31" })
-                    .Component("C1")
-                        .Include()
-                        .SetStartRevision("31")
-                        .SetEndRevision("45")
-                        .Parent
                     .Component("C2")
                         .Include()
-                        .SetStartRevision("1234")
-                        .SetEndRevision("HEAD")
+                        .SetValues(new { StartRevision = "1234", EndRevision = "HEAD" })
+                        .Parent
+                    .Component("C1")
+                        .Include()
+                        .SetValues(new { StartRevision = "453", EndRevision = "480" })
                         .Parent
                     .Save();
 

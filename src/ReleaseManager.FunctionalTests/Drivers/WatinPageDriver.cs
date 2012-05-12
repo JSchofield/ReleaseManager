@@ -59,13 +59,20 @@ namespace ReleaseManager.FunctionalTests.Drivers
             }
         }
 
-        public virtual void SetValues(object keysValuePairs)
+        protected void SetValues(object keyValuePairs)
         {
-            foreach (var pair in AnonymousObjectToDictionary(keysValuePairs))
+            SetValues(AnonymousObjectToDictionary(keyValuePairs));
+        }
+
+        // Argument type is uglier but more generic than IDictionary<string, string>
+        // This allow Linq expression outputs to match the argument type
+        protected void SetValues(IEnumerable<KeyValuePair<string, string>> keyValuePairs)
+        {
+            foreach (var pair in keyValuePairs)
             {
                 EnterText(pair.Key, pair.Value, EntryMethod.SetValue);
             }
-        }       
+        }      
 
         protected IDictionary<string, string> AnonymousObjectToDictionary(object keyValuePairs)
         {
