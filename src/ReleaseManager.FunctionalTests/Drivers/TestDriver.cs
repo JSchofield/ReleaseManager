@@ -25,7 +25,15 @@ namespace ReleaseManager.FunctionalTests.Drivers
 
         public T CreatePageDriver<T>() where T : WatinPageDriver
         {
-            return (T)_proxyGenerator.CreateClassProxy(typeof(T), new []{ this }, _interceptor);
+            try
+            {
+                return (T)_proxyGenerator.CreateClassProxy(typeof(T), new[] { this }, _interceptor);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Could not create class proxy for {0}: {1}", typeof(T).Name, e.Message);
+                throw;
+            }
         }
 
         public void Dispose()

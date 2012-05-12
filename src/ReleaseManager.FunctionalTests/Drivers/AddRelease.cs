@@ -52,7 +52,7 @@ namespace ReleaseManager.FunctionalTests.Drivers
         {
             Regex re = new Regex(@"Components_(?<index>\d+)__Name");
 
-            var field = Browser.TextField(f => re.IsMatch(f.Id) && f.Value == name);
+            var field = Browser.TextField(f => (f.Id == null || f.Value == null) ? false : (re.IsMatch(f.Id) && f.Value == name));
 
             if (field != null)
             {
