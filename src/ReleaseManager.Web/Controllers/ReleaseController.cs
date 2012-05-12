@@ -87,11 +87,11 @@
                     version.StartRevision = long.Parse(component.StartRevision, CultureInfo.InvariantCulture);
                     version.EndRevision = ParseRevisionText(component.EndRevision);
                     version.SelectedRevision = ParseRevisionText(component.SelectedRevision);
-                    Core.Repo.SaveVersion(version);
+                    Core.Repo.SaveVersion(version.VersionData());
                 }
                 else if (version != null && !component.Included) //delete
                 {
-                    Core.Repo.DeleteVersion(version);
+                    Core.Repo.DeleteVersion(version.VersionData());
                 }
                 else if (version == null && component.Included)
                 {
