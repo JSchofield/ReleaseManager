@@ -44,5 +44,17 @@ namespace ReleaseManager.FunctionalTests.Tests
                     .Save()
                 .GoToReleaseList();
         }
+
+        [Test, RequiresSTA]
+        public void UpdateComponent()
+        {
+            var home = Driver.HomePage();
+            home.GoToComponentList()
+                .AddComponent()
+                    .SetValues(new { Name = "Comp1", Location = "svn-somewhere" })
+                    .Save()
+                    .SetLocation("Comp1", "svn:\\another.repo")
+                    .Save();
+        }
     }
 }

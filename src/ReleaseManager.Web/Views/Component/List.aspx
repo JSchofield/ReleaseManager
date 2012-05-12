@@ -31,9 +31,9 @@ using (Html.BeginForm("Save", "Component", FormMethod.Post))
                     <td>
                         <%=Html.HiddenFor(m => m[index].Name) %>
                         <%=Model[index].Name %>
-                    </td>
-                    <td><%=Html.EditorFor(m => m[index].Active) %></td>
-                    <td><%=Html.EditorFor(m => m[index].Location) %></td>
+                    </td>                    
+                    <td><%=Html.CheckBoxFor(m => m[index].Active, new { id = Model[index].Name + "_Active" }) %></td>
+                    <td><%=Html.TextBoxFor(m => m[index].Location, new { id = Model[index].Name + "_Location" }) %></td>
                 </tr>
                 <%
             }
