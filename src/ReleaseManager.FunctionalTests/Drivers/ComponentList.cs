@@ -13,5 +13,20 @@ namespace ReleaseManager.FunctionalTests.Drivers
             Browser.Link("addComponent").Click();
             return CreatePageDriver<AddComponent>();
         }
+
+        public virtual ComponentList Activate(string component)
+        {
+            return this;
+        }
+
+        public virtual ComponentList Deactivate(string component)
+        {
+            return this;
+        }
+
+        public virtual ComponentList SetLocation(string location)
+        {
+            return this;
+        }
     }
 }

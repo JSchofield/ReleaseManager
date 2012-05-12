@@ -28,7 +28,8 @@
         {
             if (!string.Equals(action, currentAction, StringComparison.InvariantCultureIgnoreCase))
             {
-                return html.RouteLink(linkText, "Release", new { releaseName, action }).ToString();
+                var id = (action == "Delete") ? "delete" + releaseName : "goTo" + releaseName + action;
+                return html.RouteLink(linkText, "Release", new { releaseName, action }, new { id = id }).ToString();
             }
             return MvcHtmlString.Create(linkText).ToString();
         }

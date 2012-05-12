@@ -2,12 +2,12 @@
 
 namespace ReleaseManager.FunctionalTests.Drivers
 {
-    public class EditRelease : WatinPageDriver
+    public class ReleaseAllTickets : WatinPageDriver
     {
-        public EditRelease(TestDriver driver) : base(driver)
+        public ReleaseAllTickets(TestDriver driver) : base(driver)
         {
         }
-
+        
         public ReleaseSummary GoToSummary()
         {
             Browser.Link("goToSummary").Click();
@@ -20,10 +20,10 @@ namespace ReleaseManager.FunctionalTests.Drivers
             return CreatePageDriver<ReleaseWip>();
         }
 
-        public ReleaseAllTickets GoToAllTickets()
+        public EditRelease GoToEdit()
         {
-            Browser.Link("goToAllTickets").Click();
-            return CreatePageDriver<ReleaseAllTickets>();
+            Browser.Link("goToEdit").Click();
+            return CreatePageDriver<EditRelease>();
         }
     }
 }

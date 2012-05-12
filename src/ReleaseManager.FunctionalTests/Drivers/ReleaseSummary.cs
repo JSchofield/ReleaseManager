@@ -2,16 +2,16 @@
 
 namespace ReleaseManager.FunctionalTests.Drivers
 {
-    public class EditRelease : WatinPageDriver
+    public class ReleaseSummary : WatinPageDriver
     {
-        public EditRelease(TestDriver driver) : base(driver)
+        public ReleaseSummary(TestDriver driver) : base(driver)
         {
         }
 
-        public ReleaseSummary GoToSummary()
+        public EditRelease GoToEdit()
         {
-            Browser.Link("goToSummary").Click();
-            return CreatePageDriver<ReleaseSummary>();
+            Browser.Link("goToEdit").Click();
+            return CreatePageDriver<EditRelease>();
         }
 
         public ReleaseWip GoToWIP()

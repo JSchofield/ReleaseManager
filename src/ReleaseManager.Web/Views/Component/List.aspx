@@ -32,14 +32,14 @@ using (Html.BeginForm("Save", "Component", FormMethod.Post))
                         <%=Html.HiddenFor(m => m[index].Name) %>
                         <%=Model[index].Name %>
                     </td>
-                    <td><%=Html.EditorFor(m => m[index].Active) %></td>
+                    <td><%=Html.EditorFor(m => m[index].Active, "Active" ) %></td>
                     <td><%=Html.EditorFor(m => m[index].Location) %></td>
                 </tr>
                 <%
             }
     %>
     </table>
-    <input type="submit" value="Save" />
+    <input type="submit" value="Save" id="save" />
 <%
 }
 %>

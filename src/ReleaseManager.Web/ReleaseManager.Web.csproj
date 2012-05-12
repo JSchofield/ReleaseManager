@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Views\Component\EditorTemplates\Active.ascx" />
     <Content Include="Views\Component\List.aspx" />
     <Content Include="Views\Component\New.aspx" />
     <Content Include="Views\Release\Edit.aspx" />

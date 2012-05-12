@@ -20,15 +20,18 @@ namespace ReleaseManager.FunctionalTests.Drivers
         {
             if (!_ignoreMethods.Contains(invocation.Method.Name))
             {
-                if (_millisecondsPause > 0) { Pause(); }
-                if (_log) { System.Console.Write("{0}.{1} {2}\n", invocation.TargetType.Name, invocation.Method.Name, string.Join(" ", invocation.Arguments)); }
+                if (_log) { System.Console.WriteLine("{0}.{1} {2}", invocation.TargetType.Name, invocation.Method.Name, string.Join(" ", invocation.Arguments)); }
             }
             invocation.Proceed();
+            if (!_ignoreMethods.Contains(invocation.Method.Name))
+            {
+                if (_millisecondsPause > 0) { Pause(); }
+            }
         }
 
         public void Pause()
         {
-            Console.Write("(wait {0}ms) ", _millisecondsPause);
+            Console.WriteLine("(wait {0}ms)", _millisecondsPause);
             System.Threading.Thread.Sleep(_millisecondsPause);
         }
     }

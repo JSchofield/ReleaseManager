@@ -15,10 +15,10 @@ namespace ReleaseManager.FunctionalTests.Drivers
             return this;
         }
 
-        public virtual EditRelease Save()
+        public virtual ComponentList Save()
         {
             Browser.Button("save").Click();
-            return CreatePageDriver<EditRelease>();
+            return CreatePageDriver<ComponentList>();
         }
     }
 }

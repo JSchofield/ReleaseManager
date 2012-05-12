@@ -6,7 +6,7 @@ namespace ReleaseManager.FunctionalTests.Tests
     [TestFixture]
     public class IETests : DevServerTestBase
     {
-        public IETests() : base(true, TimeSpan.FromMilliseconds(0))
+        public IETests() : base(true, TimeSpan.FromMilliseconds(500))
         {
         }
 
@@ -22,7 +22,10 @@ namespace ReleaseManager.FunctionalTests.Tests
                 .AddRelease()
                     .SetValues(new { Name = "My Second Release", ReleaseManager = "Jonathon", ReleaseDate = "2012-04-30" })
                     .Save()
-                .GoToReleaseList();
+                .GoToReleaseList()
+                    .GoToRelease("My Release")
+                .GoToReleaseList()
+                    .DeleteRelease("My Release");
         }
 
         [Test, RequiresSTA]
