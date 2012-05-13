@@ -8,19 +8,20 @@ namespace ReleaseManager.FunctionalTests.Drivers
         {
         }
 
-        public EditRelease GoToEdit()
+
+        public virtual EditRelease GoToEdit()
         {
             Browser.Link("goToEdit").Click();
             return CreatePageDriver<EditRelease>();
         }
 
-        public ReleaseSummary GoToSummary()
+        public virtual ReleaseSummary GoToSummary()
         {
             Browser.Link("goToSummary").Click();
             return CreatePageDriver<ReleaseSummary>();
         }
 
-        public ReleaseAllTickets GoToAllTickets()
+        public virtual ReleaseAllTickets GoToAllTickets()
         {
             Browser.Link("goToAllTickets").Click();
             return CreatePageDriver<ReleaseAllTickets>();

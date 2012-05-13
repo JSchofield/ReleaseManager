@@ -5,14 +5,14 @@ namespace ReleaseManager.FunctionalTests.Drivers
 {
     public class DriverInterceptor : Castle.DynamicProxy.IInterceptor
     {
-        private readonly int _millisecondsPause;
-        private readonly bool _log;
+        public int MillisecondsPause { get; set; }
+        public bool Log { get; set; }
         private IList<string> _ignoreMethods;
 
-        public DriverInterceptor(bool log, TimeSpan pause)
+        public DriverInterceptor()
         {
-            _log = log;
-            _millisecondsPause = (int)pause.TotalMilliseconds;
+            Log = false;
+            MillisecondsPause = 0;
             _ignoreMethods = new List<string> { };
         }
 
@@ -20,19 +20,19 @@ namespace ReleaseManager.FunctionalTests.Drivers
         {
             if (!_ignoreMethods.Contains(invocation.Method.Name))
             {
-                if (_log) { System.Console.WriteLine("{0}.{1} {2}", invocation.TargetType.Name, invocation.Method.Name, string.Join(" ", invocation.Arguments)); }
+                if (Log) { System.Console.WriteLine("{0}.{1} {2}", invocation.TargetType.Name, invocation.Method.Name, string.Join(" ", invocation.Arguments)); }
             }
             invocation.Proceed();
             if (!_ignoreMethods.Contains(invocation.Method.Name))
             {
-                if (_millisecondsPause > 0) { Pause(); }
+                if (MillisecondsPause > 0) { Pause(); }
             }
         }
 
         public void Pause()
         {
-            Console.WriteLine("(wait {0}ms)", _millisecondsPause);
-            System.Threading.Thread.Sleep(_millisecondsPause);
+            Console.WriteLine("(wait {0}ms)", MillisecondsPause);
+            System.Threading.Thread.Sleep(MillisecondsPause);
         }
     }
 }

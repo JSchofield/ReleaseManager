@@ -7,20 +7,20 @@ namespace ReleaseManager.FunctionalTests.Drivers
         public ReleaseAllTickets(TestDriver driver) : base(driver)
         {
         }
-        
-        public ReleaseSummary GoToSummary()
+
+        public virtual ReleaseSummary GoToSummary()
         {
             Browser.Link("goToSummary").Click();
             return CreatePageDriver<ReleaseSummary>();
         }
 
-        public ReleaseWip GoToWIP()
+        public virtual ReleaseWip GoToWIP()
         {
             Browser.Link("goToWIP").Click();
             return CreatePageDriver<ReleaseWip>();
         }
 
-        public EditRelease GoToEdit()
+        public virtual EditRelease GoToEdit()
         {
             Browser.Link("goToEdit").Click();
             return CreatePageDriver<EditRelease>();

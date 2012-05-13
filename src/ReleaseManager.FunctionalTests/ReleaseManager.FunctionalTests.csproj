@@ -71,6 +71,7 @@
     <Compile Include="Drivers\TestDriver.cs" />
     <Compile Include="Drivers\ComponentList.cs" />
     <Compile Include="Drivers\Home.cs" />
+    <Compile Include="Drivers\VersionCommits.cs" />
     <Compile Include="Drivers\WatinPageDriver.cs" />
     <Compile Include="Tests\DevServerTestBase.cs" />
     <Compile Include="Tests\IETests.cs" />

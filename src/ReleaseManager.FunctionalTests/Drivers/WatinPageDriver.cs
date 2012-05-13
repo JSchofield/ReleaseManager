@@ -14,6 +14,7 @@ namespace ReleaseManager.FunctionalTests.Drivers
 
     public abstract class WatinPageDriver
     {
+
         public WatinPageDriver(TestDriver driver)
         {
             this.Driver = driver;

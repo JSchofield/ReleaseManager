@@ -13,8 +13,8 @@ namespace ReleaseManager.FunctionalTests.Tests
         private const string Port = "57228"; // Matches the DevelopmentServerPort in ReleaseManager.Web
 
         private readonly WebServerProcess _webServer;
-        private readonly bool _logDriverCommands;
-        private readonly TimeSpan _pauseBeforeCommand;
+        protected bool LogDriverCommands;
+        protected TimeSpan PauseBeforeCommand;
 
         public TestDriver Driver { get; private set; }
 
@@ -24,8 +24,8 @@ namespace ReleaseManager.FunctionalTests.Tests
 
         public DevServerTestBase(bool logDriverCommands, TimeSpan pauseBeforeCommand)
         {
-            _logDriverCommands = logDriverCommands;
-            _pauseBeforeCommand = pauseBeforeCommand;
+            LogDriverCommands = logDriverCommands;
+            PauseBeforeCommand = pauseBeforeCommand;
             _webServer = CreateWebServerProcess();
         }
 
@@ -43,7 +43,7 @@ namespace ReleaseManager.FunctionalTests.Tests
         public void SetUp()
         {
             StartWebServer(_webServer);
-            Driver = CreateDriver(_webServer.UrlStem.ToString(), _logDriverCommands, _pauseBeforeCommand);
+            Driver = CreateDriver(_webServer.UrlStem.ToString(), LogDriverCommands, PauseBeforeCommand);
         }
         
         [TearDown]

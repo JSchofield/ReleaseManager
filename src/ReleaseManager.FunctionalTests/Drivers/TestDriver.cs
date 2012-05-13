@@ -7,13 +7,39 @@ namespace ReleaseManager.FunctionalTests.Drivers
     public class TestDriver: IDisposable
     {
         private readonly ProxyGenerator _proxyGenerator;
-        private readonly IInterceptor _interceptor;
+        private readonly DriverInterceptor _interceptor;
+
+        public TimeSpan Pause 
+        {
+            get
+            {
+                return TimeSpan.FromMilliseconds(_interceptor.MillisecondsPause);
+            }
+            set
+            {
+                _interceptor.MillisecondsPause = (int)value.TotalMilliseconds;
+            }
+        }
+
+        public bool Log
+        {
+            get
+            {
+                return _interceptor.Log;
+            }
+            set
+            {
+                _interceptor.Log = value;
+            }
+        }
 
         public TestDriver(Browser browser, bool log, TimeSpan pause)
         {
             Browser = browser;
-            _interceptor = new DriverInterceptor(log, pause);
-            _proxyGenerator =  new ProxyGenerator();
+            _proxyGenerator = new ProxyGenerator();
+            _interceptor = new DriverInterceptor();
+            Log = log;
+            Pause = pause;
         }
 
         public Browser Browser { get; private set; }

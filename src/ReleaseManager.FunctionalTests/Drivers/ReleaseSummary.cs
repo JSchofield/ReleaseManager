@@ -1,29 +1,34 @@
-﻿using System;
-
-namespace ReleaseManager.FunctionalTests.Drivers
+﻿namespace ReleaseManager.FunctionalTests.Drivers
 {
+
     public class ReleaseSummary : WatinPageDriver
     {
         public ReleaseSummary(TestDriver driver) : base(driver)
         {
         }
 
-        public EditRelease GoToEdit()
+        public virtual EditRelease GoToEdit()
         {
             Browser.Link("goToEdit").Click();
             return CreatePageDriver<EditRelease>();
         }
 
-        public ReleaseWip GoToWIP()
+        public virtual ReleaseWip GoToWIP()
         {
             Browser.Link("goToWIP").Click();
             return CreatePageDriver<ReleaseWip>();
         }
 
-        public ReleaseAllTickets GoToAllTickets()
+        public virtual ReleaseAllTickets GoToAllTickets()
         {
             Browser.Link("goToAllTickets").Click();
             return CreatePageDriver<ReleaseAllTickets>();
+        }
+
+        public virtual VersionCommits GoToVersion(string component)
+        {
+            Browser.Link(l => l.Text == component);
+            return CreatePageDriver<VersionCommits>();
         }
     }
 }
