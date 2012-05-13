@@ -27,7 +27,7 @@
 
         public virtual VersionCommits GoToVersion(string component)
         {
-            Browser.Link(l => l.Text == component);
+            Browser.Link(l => l.Text == component).Click();
             return CreatePageDriver<VersionCommits>();
         }
     }

@@ -37,12 +37,12 @@ namespace ReleaseManager.FunctionalTests.Tests
             var home = Driver.HomePage();
             home.GoToComponentList()
                 .AddComponent()
-                    .SetValues(new {Name = "Comp1", Location = "svn-somewhere" })
+                    .SetValues(new {Name = "C1", Location = @"svn://repo.com/c1" })
                     .Save()
                 .GoToReleaseList()
                 .AddRelease()
-                    .SetValues(new { Name = "My Release", ReleaseManager = "Jonathon", ReleaseDate = "2012-03-31" })
-                    .Component("Comp1")
+                    .SetValues(new { Name = "R1", ReleaseManager = "Jonathon", ReleaseDate = "2012-03-31" })
+                    .Component("C1")
                         .Include().Parent
                     .Save()
                 .GoToReleaseList();
@@ -54,9 +54,9 @@ namespace ReleaseManager.FunctionalTests.Tests
             var home = Driver.HomePage();
             home.GoToComponentList()
                 .AddComponent()
-                    .SetValues(new { Name = "Comp1", Location = "svn-somewhere" })
+                    .SetValues(new { Name = "C1", Location = @"svn://repo.com/c1" })
                     .Save()
-                    .SetLocation("Comp1", "svn:\\another.repo")
+                    .SetLocation("C1", @"svn://another.repo.com/c1")
                     .Save();
         }
 
@@ -66,17 +66,17 @@ namespace ReleaseManager.FunctionalTests.Tests
             var home = Driver.HomePage();
             home.GoToComponentList()
                 .AddComponent()
-                    .SetValues(new { Name = "C1", Location = @"svn:\\repo\c1" })
+                    .SetValues(new { Name = "C1", Location = @"svn://repo.com/c1" })
                     .Save()
                 .AddComponent()
-                    .SetValues(new { Name = "C2", Location = @"svn:\\repo\c2" })
+                    .SetValues(new { Name = "C2", Location = @"svn://repo.com/c2" })
                     .Save()
                 .AddComponent()
-                    .SetValues(new { Name = "C3", Location = @"svn:\\repo\c3" })
+                    .SetValues(new { Name = "C3", Location = @"svn://repo.com/c3" })
                     .Save()
                 .GoToReleaseList()                    
                 .AddRelease()
-                    .SetValues(new { Name = "My Release", ReleaseManager = "Jonathon", ReleaseDate = "2012-03-31" })
+                    .SetValues(new { Name = "R1", ReleaseManager = "Jon", ReleaseDate = "2012-03-31" })
                     .Component("C2")
                         .Include()
                         .SetValues(new { StartRevision = "1234", EndRevision = "HEAD" })
@@ -94,14 +94,14 @@ namespace ReleaseManager.FunctionalTests.Tests
             var home = Driver.HomePage();
             home.GoToComponentList()
                 .AddComponent()
-                    .SetValues(new { Name = "C1", Location = @"svn:\\repo\c1" })
+                    .SetValues(new { Name = "C1", Location = @"svn://repo.com/c1" })
                     .Save()
                 .AddComponent()
-                    .SetValues(new { Name = "C2", Location = @"svn:\\repo\c2" })
+                    .SetValues(new { Name = "C2", Location = @"svn://repo.com/c2" })
                     .Save()
                 .GoToReleaseList()
                 .AddRelease()
-                    .SetValues(new { Name = "My Release", ReleaseManager = "Jonathon", ReleaseDate = "2012-03-31" })
+                    .SetValues(new { Name = "R1", ReleaseManager = "Jon", ReleaseDate = "2012-03-31" })
                     .Component("C1")
                         .Include()
                         .Parent
@@ -125,13 +125,13 @@ namespace ReleaseManager.FunctionalTests.Tests
             var releaseList = home
                 .GoToComponentList()
                 .AddComponent()
-                    .SetValues(new { Name = "C1", Location = @"svn:\\repo\c1" })
+                    .SetValues(new { Name = "C1", Location = @"svn://repo.com/c1" })
                     .Save()
                 .AddComponent()
-                    .SetValues(new { Name = "C2", Location = @"svn:\\repo\c2" })
+                    .SetValues(new { Name = "C2", Location = @"svn://repo.com/c2" })
                     .Save()
                 .AddComponent()
-                    .SetValues(new { Name = "C3", Location = @"svn:\\repo\c3" })
+                    .SetValues(new { Name = "C3", Location = @"svn://repo.com/c3" })
                     .Save()
                 .GoToReleaseList()
                 .AddRelease()
@@ -159,7 +159,7 @@ namespace ReleaseManager.FunctionalTests.Tests
                     .Save()
                 .GoToReleaseList();
 
-            Driver.Pause = TimeSpan.FromMilliseconds(300);
+            Driver.Pause = TimeSpan.FromMilliseconds(200);
 
             releaseList
                 .GoToRelease("R1")
