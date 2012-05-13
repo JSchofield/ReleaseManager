@@ -42,7 +42,7 @@ namespace ReleaseManager.FunctionalTests.Tests
                 .GoToReleaseList()
                 .AddRelease()
                     .SetValues(new { Name = "R1", ReleaseManager = "Jonathon", ReleaseDate = "2012-03-31" })
-                    .Component("C1")
+                    .EditComponent("C1")
                         .Include().Parent
                     .Save()
                 .GoToReleaseList();
@@ -77,11 +77,11 @@ namespace ReleaseManager.FunctionalTests.Tests
                 .GoToReleaseList()                    
                 .AddRelease()
                     .SetValues(new { Name = "R1", ReleaseManager = "Jon", ReleaseDate = "2012-03-31" })
-                    .Component("C2")
+                    .EditComponent("C2")
                         .Include()
                         .SetValues(new { StartRevision = "1234", EndRevision = "HEAD" })
                         .Parent
-                    .Component("C1")
+                    .EditComponent("C1")
                         .Include()
                         .SetValues(new { StartRevision = "453", EndRevision = "480" })
                         .Parent
@@ -102,7 +102,7 @@ namespace ReleaseManager.FunctionalTests.Tests
                 .GoToReleaseList()
                 .AddRelease()
                     .SetValues(new { Name = "R1", ReleaseManager = "Jon", ReleaseDate = "2012-03-31" })
-                    .Component("C1")
+                    .EditComponent("C1")
                         .Include()
                         .Parent
                     .Save()
@@ -136,11 +136,11 @@ namespace ReleaseManager.FunctionalTests.Tests
                 .GoToReleaseList()
                 .AddRelease()
                     .SetValues(new { Name = "R1", ReleaseManager = "Jon", ReleaseDate = "2012-03-31" })
-                    .Component("C1")
+                    .EditComponent("C1")
                         .Include()
                         .SetValues(new { StartRevision = "1000", EndRevision = "1050" })
                         .Parent
-                    .Component("C2")
+                    .EditComponent("C2")
                         .Include()
                         .SetValues(new { StartRevision = "1300", EndRevision = "1320" })
                         .Parent
@@ -148,11 +148,11 @@ namespace ReleaseManager.FunctionalTests.Tests
                 .GoToReleaseList()
                 .AddRelease()
                     .SetValues(new { Name = "R2", ReleaseManager = "Jon", ReleaseDate = "2012-04-30" })
-                    .Component("C1")
+                    .EditComponent("C1")
                         .Include()
                         .SetValues(new { StartRevision = "890", EndRevision = "910" })
                         .Parent
-                    .Component("C2")
+                    .EditComponent("C2")
                         .Include()
                         .SetValues(new { StartRevision = "450", EndRevision = "450" })
                         .Parent
