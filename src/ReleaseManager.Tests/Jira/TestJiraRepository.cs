@@ -7,28 +7,28 @@ using ReleaseManager.Jira;
 
 namespace ReleaseManager.Tests.Jira
 {
-    public static class InMemoryIssueRepository
+    public class StatusMap : IStatusMap
     {
-        private class StatusMap : IStatusMap
+        Dictionary<string, bool> statuses;
+
+        public StatusMap()
         {
-            Dictionary<string, bool> statuses;
-
-            public StatusMap()
-            {
-                statuses = new Dictionary<string, bool>();
-                statuses["Open"] = false;
-                statuses["Closed"] = true;
-            }
-
-            public bool this[string status]
-            {
-                get { return statuses[status]; }
-            }
+            statuses = new Dictionary<string, bool>();
+            statuses["Open"] = false;
+            statuses["Closed"] = true;
         }
 
+        public bool this[string status]
+        {
+            get { return statuses[status]; }
+        }
+    }
+
+    public static class InMemoryIssueRepository
+    {
         public static IIssueRepository CreateIssueRepository()
         {
-            return new JiraRepository(new StubJiraClient(), new Uri("http://jira"), TimeSpan.FromMinutes(2), new StatusMap());
+            return new JiraRepository(new StubJiraClient(), new Uri("http://jira"), TimeSpan.FromMinutes(2), new ReleaseManager.Tests.Jira.StatusMap());
         }
     }
 

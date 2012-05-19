@@ -12,9 +12,8 @@
 
         static Core()
         {
-            Repo = MasterRepositoryFactory.CreateStubRepo();
-            //IWindsorContainer container = new WindsorContainer(new XmlInterpreter(new ConfigResource("castle")));
-            //Repo = (MasterRepository)container["master.repository"];
+            IWindsorContainer container = new WindsorContainer(new XmlInterpreter(new ConfigResource()));
+            Repo = (MasterRepository)container["master.repository"];
         }
 
         static public void FlushJiraCache()

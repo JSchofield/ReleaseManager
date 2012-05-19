@@ -133,6 +133,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ReleaseManager.FunctionalTests\ReleaseManager.FunctionalTests.csproj">
+      <Project>{A1AD64F6-FA18-4F37-80EB-1F2ADE0A8336}</Project>
+      <Name>ReleaseManager.FunctionalTests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ReleaseManager.Tests\ReleaseManager.Tests.csproj">
       <Project>{C48B7990-7137-406B-B737-D69C3EF61A40}</Project>
       <Name>ReleaseManager.Tests</Name>

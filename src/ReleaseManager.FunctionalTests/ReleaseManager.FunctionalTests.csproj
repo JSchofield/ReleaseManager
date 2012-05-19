@@ -73,6 +73,7 @@
     <Compile Include="Drivers\Home.cs" />
     <Compile Include="Drivers\VersionCommits.cs" />
     <Compile Include="Drivers\WatinPageDriver.cs" />
+    <Compile Include="Stubs\StubVersionControl.cs" />
     <Compile Include="Tests\DevServerTestBase.cs" />
     <Compile Include="Tests\IETests.cs" />
     <Compile Include="Drivers\ReleaseList.cs" />
@@ -93,7 +94,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ReleaseManager\ReleaseManager.csproj">
+      <Project>{F53EFE12-779E-46C9-9441-ACDD7A1C434E}</Project>
+      <Name>ReleaseManager</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
