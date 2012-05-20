@@ -3,35 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ReleaseManager.Subversion;
+using System.IO;
 
 namespace ReleaseManager.FunctionalTests.Stubs
 {
     public class StubVersionControl : IVersionControlRepository
     {
+        private IList<ILogItem> ReadLogFromFile(string path)
+        {
+            var log = new List<ILogItem>();
+            using (var fileReader = new StreamReader(path))
+            {
+                string line;
+                while ((line = fileReader.ReadLine()) != null)
+                {
+                    var fields = line.Split('\t');
+                    log.Add(new LogItem {
+                        Author = fields[2],
+                        Revision = int.Parse(fields[0]),
+                        Time = DateTime.Parse(fields[1]),
+                        Message = fields[3] } );
+                }
+            }
+            return log;
+        }
+
         public IEnumerable<ILogItem> GetLogItems(string target, long startRevision, long? endRevision)
         {
-            return new List<ILogItem> { 
-                new LogItem() { Author = "jonathon", Revision = 1, Time = DateTime.Parse("2012-03-21 15:30:00"), Message = "Commit 1" },
-                new LogItem() { Author = "jonathon", Revision = 2, Time = DateTime.Parse("2012-03-21 15:31:00"), Message = "Commit 2" },
-                new LogItem() { Author = "jonathon", Revision = 3, Time = DateTime.Parse("2012-03-21 15:32:00"), Message = "Commit 3" } };
+            var targetUri = new Uri(target);
+            if (!targetUri.IsFile)
+            {
+                throw new ArgumentException("Target must be a file URI");
+            }
+            var filePath = targetUri.LocalPath;
+
+            var logItems = ReadLogFromFile(filePath);
+            return logItems.Where(item => item.Revision >= startRevision && item.Revision <= (endRevision ?? long.MaxValue));
         }
 
         public IEnumerable<ILogItem> GetLogItems(Uri target, long startRevision, long? endRevision)
         {
-            return new List<ILogItem> { 
-                new LogItem() { Author = "jonathon", Revision = 1, Time = DateTime.Parse("2012-03-21 15:30:00"), Message = "Commit 1" },
-                new LogItem() { Author = "jonathon", Revision = 2, Time = DateTime.Parse("2012-03-21 15:31:00"), Message = "Commit 2" },
-                new LogItem() { Author = "jonathon", Revision = 3, Time = DateTime.Parse("2012-03-21 15:32:00"), Message = "Commit 3" } };
-        }
-
-        public long GetLastChangeRevision(Uri target)
-        {
-            return 3;
+            return GetLogItems(target.ToString(), startRevision, endRevision);
         }
 
         public long GetLastChangeRevision(string target)
         {
-            return 3;
+            var logItems = ReadLogFromFile(target);
+            return logItems.Max(item => item.Revision);
+        }
+
+        public long GetLastChangeRevision(Uri target)
+        {
+            return GetLastChangeRevision(target.ToString());
         }
     }
 }
