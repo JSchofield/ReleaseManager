@@ -3,6 +3,7 @@
 ** Remove references to test projects from the web project
 * Modify test driver for ReleaseList.EditComponent so that component actions happen within the EditComponent method - should get around the need for the Parent method
 * Make functional tests switchable between different databases
+** In some cases, may not want the Functional tests to close the webserver - so the tests can get the website into a particular state and then allow manual exploration
 * Functional tests should deploy the test website - using the development web server so I just need to xcopy the files with a particular web.config and any data files
 ** Some things only work because all projects are built to the same output directory
 * Add snapshot reports
