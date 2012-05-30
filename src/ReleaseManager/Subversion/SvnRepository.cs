@@ -64,22 +64,12 @@ namespace ReleaseManager.Subversion
 
         public long GetLastChangeRevision(string target)
         {
-            return GetLastChangeRevision(new Uri(target));
-        }
-
-        public long GetLastChangeRevision(Uri target)
-        {
             SvnInfoEventArgsWrapper result;
             this.client.GetInfo(target, out result);
             return result.LastChangeRevision;
         }
         
         public IEnumerable<ILogItem> GetLogItems(string target, long startRevision, long? endRevision)
-        {
-            return this.GetLogItems(new Uri(target), startRevision, endRevision);
-        }
-
-        public IEnumerable<ILogItem> GetLogItems(Uri target, long startRevision, long? endRevision)
         {
             var key =
                 new GetLogItemsArgs {
@@ -100,7 +90,7 @@ namespace ReleaseManager.Subversion
             return result;
         }
 
-        private IEnumerable<ILogItem> GetLogItemsFromSvn(Uri target, long startRevision, long? endRevision)
+        private IEnumerable<ILogItem> GetLogItemsFromSvn(string target, long startRevision, long? endRevision)
         {
             var logItems = new Collection<ILogItem>();
             if (startRevision <= this.GetLastChangeRevision(target))

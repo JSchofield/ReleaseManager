@@ -7,9 +7,7 @@ namespace ReleaseManager.Subversion
     public interface ISvnClient : IDisposable
     {
         bool GetLog(string targetPath, long startRevision, long? endRevision, out ICollection<SvnLogEventArgsWrapper> logItems);
-        bool GetLog(Uri target, long startRevision, long? endRevision, out ICollection<SvnLogEventArgsWrapper> logItems);
         bool GetInfo(string targetPath, out SvnInfoEventArgsWrapper info);
-        bool GetInfo(Uri target, out SvnInfoEventArgsWrapper info);
     }
 }
 

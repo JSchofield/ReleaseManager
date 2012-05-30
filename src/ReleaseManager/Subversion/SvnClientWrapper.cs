@@ -30,26 +30,16 @@ namespace ReleaseManager.Subversion
 
         public virtual bool GetInfo(string targetPath, out SvnInfoEventArgsWrapper info)
         {
-            return GetInfo(new Uri(targetPath), out info);
-        }
-
-        public virtual bool GetInfo(Uri target, out SvnInfoEventArgsWrapper info)
-        {
             SvnInfoEventArgs svnInfo;
-            bool result = this.client.GetInfo(target, out svnInfo);
+            bool result = this.client.GetInfo(new Uri(targetPath), out svnInfo);
             info = new SvnInfoEventArgsWrapper(svnInfo.LastChangeRevision);
             return result;
         }
 
         public virtual bool GetLog(string targetPath, long startRevision, long? endRevision, out ICollection<SvnLogEventArgsWrapper> logItems)
         {
-            return GetLog(new Uri(targetPath), startRevision, endRevision, out logItems);
-        }
-
-        public virtual bool GetLog(Uri target, long startRevision, long? endRevision, out ICollection<SvnLogEventArgsWrapper> logItems)
-        {
             Collection<SvnLogEventArgs> svnLogItems;
-            bool result = this.client.GetLog(target, GetLogArgs(startRevision, endRevision), out svnLogItems);
+            bool result = this.client.GetLog(new Uri(targetPath), GetLogArgs(startRevision, endRevision), out svnLogItems);
             logItems = svnLogItems.ToList().ConvertAll(item => new SvnLogEventArgsWrapper(item));
             return result;
         }

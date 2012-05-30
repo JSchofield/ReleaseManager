@@ -4,7 +4,7 @@ namespace ReleaseManager.Subversion
 {
     public struct GetLogItemsArgs
     {
-        public Uri Target { get; set; }
+        public string Target { get; set; }
         public long StartRevision { get; set; }
         public long? EndRevision { get; set; }
 

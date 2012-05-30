@@ -30,39 +30,14 @@ namespace ReleaseManager.FunctionalTests.Stubs
 
         public bool GetLog(string targetPath, long startRevision, long? endRevision, out ICollection<SvnLogEventArgsWrapper> logItems)
         {
-            var targetUri = new Uri(targetPath);
-            if (!targetUri.IsFile)
-            {
-                throw new ArgumentException("Target must be a file URI");
-            }
-            var filePath = targetUri.LocalPath;
-
-            logItems = ReadLogFromFile(filePath).Where(item => item.Revision >= startRevision && item.Revision <= (endRevision ?? long.MaxValue)).ToList();
+            logItems = ReadLogFromFile(targetPath).Where(item => item.Revision >= startRevision && item.Revision <= (endRevision ?? long.MaxValue)).ToList();
             return true;
-        }
-
-        public bool GetLog(Uri target, long startRevision, long? endRevision, out ICollection<SvnLogEventArgsWrapper> logItems)
-        {
-            return GetLog(target.ToString(), startRevision, endRevision, out logItems);
         }
 
         public bool GetInfo(string targetPath, out SvnInfoEventArgsWrapper info)
         {
-            /*
-            var targetUri = new Uri(targetPath);
-            if (!targetUri.IsFile)
-            {
-                throw new ArgumentException("Target must be a file URI");
-            }
-            var filePath = targetUri.LocalPath;
-            */
             info = new SvnInfoEventArgsWrapper(ReadLogFromFile(targetPath).Max(w => w.Revision));
             return true;
-        }
-
-        public bool GetInfo(Uri target, out SvnInfoEventArgsWrapper info)
-        {
-            return GetInfo(target.ToString(), out info);
         }
 
         public void Dispose()

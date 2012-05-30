@@ -138,11 +138,11 @@ namespace ReleaseManager.FunctionalTests.Tests
                     .SetValues(new { Name = "R1", ReleaseManager = "Jon", ReleaseDate = "2012-03-31" })
                     .EditComponent("C1")
                         .Include()
-                        .SetValues(new { StartRevision = "1000", EndRevision = "1050" })
+                        .SetValues(new { StartRevision = "1", EndRevision = "5" })
                         .Parent
                     .EditComponent("C2")
                         .Include()
-                        .SetValues(new { StartRevision = "1300", EndRevision = "1320" })
+                        .SetValues(new { StartRevision = "5", EndRevision = "9" })
                         .Parent
                     .Save()
                 .GoToReleaseList()
@@ -150,11 +150,11 @@ namespace ReleaseManager.FunctionalTests.Tests
                     .SetValues(new { Name = "R2", ReleaseManager = "Jon", ReleaseDate = "2012-04-30" })
                     .EditComponent("C1")
                         .Include()
-                        .SetValues(new { StartRevision = "890", EndRevision = "910" })
+                        .SetValues(new { StartRevision = "2", EndRevision = "6" })
                         .Parent
                     .EditComponent("C2")
                         .Include()
-                        .SetValues(new { StartRevision = "450", EndRevision = "450" })
+                        .SetValues(new { StartRevision = "4", EndRevision = "3" })
                         .Parent
                     .Save()
                 .GoToReleaseList();
