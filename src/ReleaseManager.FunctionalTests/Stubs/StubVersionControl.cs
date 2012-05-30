@@ -7,54 +7,66 @@ using System.IO;
 
 namespace ReleaseManager.FunctionalTests.Stubs
 {
-    public class StubVersionControl : IVersionControlRepository
+    public class StubVersionControl : ISvnClient
     {
-        private IList<ILogItem> ReadLogFromFile(string path)
+        private IList<SvnLogEventArgsWrapper> ReadLogFromFile(string path)
         {
-            var log = new List<ILogItem>();
+            var log = new List<SvnLogEventArgsWrapper>();
             using (var fileReader = new StreamReader(path))
             {
                 string line;
                 while ((line = fileReader.ReadLine()) != null)
                 {
                     var fields = line.Split('\t');
-                    log.Add(new LogItem {
-                        Author = fields[2],
+                    log.Add(new SvnLogEventArgsWrapper {
                         Revision = int.Parse(fields[0]),
                         Time = DateTime.Parse(fields[1]),
-                        Message = fields[3] } );
+                        Author = fields[2],
+                        LogMessage = fields[3] } );
                 }
             }
             return log;
         }
 
-        public IEnumerable<ILogItem> GetLogItems(string target, long startRevision, long? endRevision)
+        public bool GetLog(string targetPath, long startRevision, long? endRevision, out ICollection<SvnLogEventArgsWrapper> logItems)
         {
-            var targetUri = new Uri(target);
+            var targetUri = new Uri(targetPath);
             if (!targetUri.IsFile)
             {
                 throw new ArgumentException("Target must be a file URI");
             }
             var filePath = targetUri.LocalPath;
 
-            var logItems = ReadLogFromFile(filePath);
-            return logItems.Where(item => item.Revision >= startRevision && item.Revision <= (endRevision ?? long.MaxValue));
+            logItems = ReadLogFromFile(filePath).Where(item => item.Revision >= startRevision && item.Revision <= (endRevision ?? long.MaxValue)).ToList();
+            return true;
         }
 
-        public IEnumerable<ILogItem> GetLogItems(Uri target, long startRevision, long? endRevision)
+        public bool GetLog(Uri target, long startRevision, long? endRevision, out ICollection<SvnLogEventArgsWrapper> logItems)
         {
-            return GetLogItems(target.ToString(), startRevision, endRevision);
+            return GetLog(target.ToString(), startRevision, endRevision, out logItems);
         }
 
-        public long GetLastChangeRevision(string target)
+        public bool GetInfo(string targetPath, out SvnInfoEventArgsWrapper info)
         {
-            var logItems = ReadLogFromFile(target);
-            return logItems.Max(item => item.Revision);
+            var targetUri = new Uri(targetPath);
+            if (!targetUri.IsFile)
+            {
+                throw new ArgumentException("Target must be a file URI");
+            }
+            var filePath = targetUri.LocalPath;
+
+            info = new SvnInfoEventArgsWrapper(ReadLogFromFile(filePath).Max(w => w.Revision));
+            return true;
         }
 
-        public long GetLastChangeRevision(Uri target)
+        public bool GetInfo(Uri target, out SvnInfoEventArgsWrapper info)
         {
-            return GetLastChangeRevision(target.ToString());
+            return GetInfo(target.ToString(), out info);
+        }
+
+        public void Dispose()
+        {
+            
         }
     }
 }

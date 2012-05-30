@@ -5,6 +5,7 @@ using NUnit.Framework;
 using WatiN.Core;
 using ReleaseManager.FunctionalTests.WebServer;
 using ReleaseManager.FunctionalTests.Drivers;
+using ReleaseManager.Tests.Persistence;
 
 namespace ReleaseManager.FunctionalTests.Tests
 {
@@ -42,6 +43,7 @@ namespace ReleaseManager.FunctionalTests.Tests
         [SetUp]
         public void SetUp()
         {
+            SQLiteDatabase.CreateInMemoryRepository();
             StartWebServer(_webServer);
             Driver = CreateDriver(_webServer.UrlStem.ToString(), LogDriverCommands, PauseBeforeCommand);
         }

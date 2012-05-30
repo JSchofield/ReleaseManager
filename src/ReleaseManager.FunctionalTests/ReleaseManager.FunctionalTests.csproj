@@ -96,6 +96,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ReleaseManager.Tests\ReleaseManager.Tests.csproj">
+      <Project>{C48B7990-7137-406B-B737-D69C3EF61A40}</Project>
+      <Name>ReleaseManager.Tests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ReleaseManager\ReleaseManager.csproj">
       <Project>{F53EFE12-779E-46C9-9441-ACDD7A1C434E}</Project>
       <Name>ReleaseManager</Name>

@@ -13,7 +13,7 @@
         static Core()
         {
             IWindsorContainer container = new WindsorContainer(new XmlInterpreter(new ConfigResource()));
-            Repo = (MasterRepository)container["master.repository"];
+            Repo = container.Resolve<MasterRepository>("master.repository");
         }
 
         static public void FlushJiraCache()

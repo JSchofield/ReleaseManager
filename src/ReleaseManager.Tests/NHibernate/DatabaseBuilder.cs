@@ -64,12 +64,13 @@
         }
     }
 
-    [TestFixture, Ignore("Run this to create a script for a SqlLite database.")]
+    [TestFixture] //, Ignore("Run this to create a script for a SqlLite database.")]
     public class TestDatabaseBuilder
     {
         [Test]
         public void CreateDatabaseObjects()
         {
+            SQLiteDatabase.CreateInMemoryRepository();
             var testRepo = SQLiteDatabase.CreateInMemoryRepository();
 
             testRepo.SaveComponent(new Component { Name = "Test", Location = "svn:\\repo\test", Active = true });

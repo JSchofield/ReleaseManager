@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using ReleaseManager.Jira;
+using System.IO;
 
 namespace ReleaseManager.Tests.Jira
 {
@@ -23,6 +24,11 @@ namespace ReleaseManager.Tests.Jira
         private readonly IRemoteStatus[] statuses;
         private readonly List<IRemoteIssue> issues;
         private string expectedToken;
+
+        public StubJiraClient(string path)
+        {
+            issues = ReadIssuesFromFile(path);
+        }
 
         public StubJiraClient()
         {
@@ -56,6 +62,27 @@ namespace ReleaseManager.Tests.Jira
         public IRemoteStatus[] getStatuses(string token)
         {
             return statuses;
+        }
+
+        private List<IRemoteIssue> ReadIssuesFromFile(string path)
+        {
+            var issues = new List<IRemoteIssue>();
+            using (var fileReader = new StreamReader(path))
+            {
+                string line;
+                while ((line = fileReader.ReadLine()) != null)
+                {
+                    var fields = line.Split('\t');
+                    issues.Add(new RemoteIssue
+                    {
+                        key = fields[0],
+                        assignee = fields[1],
+                        status = fields[2],
+                        summary = fields[3]
+                    });
+                }
+            }
+            return issues;
         }
 
         public IRemoteIssue getIssue(string token, string key)
