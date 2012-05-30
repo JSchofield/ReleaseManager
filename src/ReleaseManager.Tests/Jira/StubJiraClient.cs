@@ -28,6 +28,12 @@ namespace ReleaseManager.Tests.Jira
         public StubJiraClient(string path)
         {
             issues = ReadIssuesFromFile(path);
+            this.statuses = 
+                issues
+                    .Select(i => i.status)
+                    .Distinct()
+                    .Select(s => new RemoteStatus { id = s, name = s })
+                    .ToArray();
         }
 
         public StubJiraClient()

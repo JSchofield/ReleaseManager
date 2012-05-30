@@ -62,6 +62,7 @@
     <Compile Include="BehaviorDrivenSpecificationBase.cs" />
     <Compile Include="ConfigLoader.cs" />
     <Compile Include="Jira\StubJiraClient.cs" />
+    <Compile Include="Jira\StubStatusMap.cs" />
     <Compile Include="Jira\TestIssueCollection.cs" />
     <Compile Include="Jira\TestJiraConfig.cs" />
     <Compile Include="Jira\TestStatusMap.cs" />

@@ -48,14 +48,15 @@ namespace ReleaseManager.FunctionalTests.Stubs
 
         public bool GetInfo(string targetPath, out SvnInfoEventArgsWrapper info)
         {
+            /*
             var targetUri = new Uri(targetPath);
             if (!targetUri.IsFile)
             {
                 throw new ArgumentException("Target must be a file URI");
             }
             var filePath = targetUri.LocalPath;
-
-            info = new SvnInfoEventArgsWrapper(ReadLogFromFile(filePath).Max(w => w.Revision));
+            */
+            info = new SvnInfoEventArgsWrapper(ReadLogFromFile(targetPath).Max(w => w.Revision));
             return true;
         }
 

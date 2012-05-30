@@ -1,0 +1,17 @@
+* Modify functional tests so that web server can optionally be started/killed on every test or just once for the whole test suite
+* Convert Windsor to fluent configuration API
+** Remove references to test projects from the web project
+* Modify test driver for ReleaseList.EditComponent so that component actions happen within the EditComponent method - should get around the need for the Parent method
+* Make functional tests switchable between different databases
+* Functional tests should deploy the test website - using the development web server so I just need to xcopy the files with a particular web.config and any data files
+** Some things only work because all projects are built to the same output directory
+* Add snapshot reports
+* Move jira status map to the database - allow modifications from within the website
+** Should I allow each component to reference a different Jira repo and specify different status map?
+* Organise stubs, test helpers, database helpers
+** Remove dependencies between Functional and Unit tests?
+* What version of MVC am I on? upgrade
+* FxCop
+* Build
+* Allow encrypted configuration/persistence of credentials
+* In the case of an error the test drivers should capture the error from the page and output it to the console

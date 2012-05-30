@@ -19,7 +19,7 @@
             Configuration config = 
                 new Configuration()
                     .SetProperty(Environment.Dialect, "NHibernate.Dialect.SQLiteDialect")
-                    .SetProperty(Environment.ConnectionString, @"Data Source=C:\Users\jon\ReleaseManager\nhibernate.db;Version=3")
+                    .SetProperty(Environment.ConnectionString, @"Data Source=nhibernate.db;Version=3")
                     .SetProperty(Environment.ConnectionDriver, "NHibernate.Driver.SQLiteDriver")
                     .SetProperty(Environment.ConnectionProvider, "NHibernate.Connection.DriverConnectionProvider")
                     .AddAssembly(typeof(Component).Assembly);
